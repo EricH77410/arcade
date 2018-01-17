@@ -1,0 +1,50 @@
+
+.arcade {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #777;
+    box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
+    background-image: url('/assets/img/Violet_DI_1.png');
+    background-size: 100% 100%;
+    background-position: top;
+    height: 95vh;
+    position: relative;
+}
+
+.arcade__haut {    
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.secteur1 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.secteur2 {
+    display: flex;
+}
+
+.arcade__bas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.secteur3 {
+    display: flex;
+}
+
+.secteur4 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
