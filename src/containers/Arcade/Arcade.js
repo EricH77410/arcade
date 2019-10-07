@@ -7,11 +7,10 @@ import './Arcade.css';
 class Arcade extends Component {
 
     state = {
-        secteurs: [],
-        face: 'v'
+        secteurs: []
     }
 
-    componentWillMount() {
+    componentDidMount() {
         let data = [];
         let secteurs = [];
         for (let i=1; i<=4; i++) {
@@ -29,12 +28,12 @@ class Arcade extends Component {
         this.setState({face});
     }
 
-    getDentSecteur = (num) => {
+    getDentSecteur = (num, face) => {
         const chicots = this.state.secteurs[num-1].map((dent)=>{
-            return <Dent key={dent} num={dent} clicked={()=>this.handleDentClicked(dent)} face={this.state.face}/>
+            return <Dent key={dent} num={dent} clicked={()=>this.handleDentClicked(dent)} face={face}/>
         })
         return (
-            <div className={"secteur"+num}>
+            <div className={"secteur"+num+'__'+face}>
                 {chicots}
             </div>
         )
@@ -47,15 +46,19 @@ class Arcade extends Component {
   render() {
     return (
       <div className="arcade">
-        <button onClick={this.changeFaceHandler}>{this.state.face.toLocaleUpperCase()}</button>
+        
         <div className="arcade__haut">
-            { this.getDentSecteur(1) }
-            { this.getDentSecteur(2) }
+            { this.getDentSecteur(1,'v') }
+            { this.getDentSecteur(1,'o') }
+            { this.getDentSecteur(2,'o') }
+            { this.getDentSecteur(2,'v') }            
         </div>
 
         <div className="arcade__bas">
-            { this.getDentSecteur(3) }
-            { this.getDentSecteur(4) }
+            { this.getDentSecteur(3,'v') }
+            { this.getDentSecteur(3,'o') }
+            { this.getDentSecteur(4,'o') }
+            { this.getDentSecteur(4,'v') }
         </div>
         
       </div>
