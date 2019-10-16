@@ -7,7 +7,9 @@ import './Arcade.css';
 class Arcade extends Component {
 
     state = {
-        secteurs: []
+        secteurs: [],
+        isLoading: true,
+        showOclu: true,
     }
 
     componentDidMount() {
@@ -20,7 +22,7 @@ class Arcade extends Component {
             secteurs.push(data);
             data=[];
         }
-        this.setState({secteurs});
+        this.setState({secteurs, isLoading: false});
     }
 
     changeFaceHandler = () => {
@@ -44,25 +46,36 @@ class Arcade extends Component {
     }
 
   render() {
-    return (
-      <div className="arcade">
-        
-        <div className="arcade__haut">
-            { this.getDentSecteur(1,'v') }
-            { this.getDentSecteur(1,'o') }
-            { this.getDentSecteur(2,'o') }
-            { this.getDentSecteur(2,'v') }            
-        </div>
+      if(this.state.isLoading) {
+        return <h3>Loading...</h3>
+      } else {
+      
+        return (        
+            <div className="arcade">
+                
+                <div className="arcade__haut">
+                    { this.getDentSecteur(1,'v') }
 
-        <div className="arcade__bas">
-            { this.getDentSecteur(3,'v') }
-            { this.getDentSecteur(3,'o') }
-            { this.getDentSecteur(4,'o') }
-            { this.getDentSecteur(4,'v') }
-        </div>
-        
-      </div>
-    )
+                    { this.state.showOclu ? this.getDentSecteur(1,'o'):'' }
+                    { this.state.showOclu ? this.getDentSecteur(2,'o'):'' }
+
+                    { this.getDentSecteur(2,'v') }            
+                </div>
+
+                <div className="arcade__bas">
+                    { this.getDentSecteur(3,'v') }
+
+                    { this.state.showOclu ? this.getDentSecteur(3,'o'):'' }
+                    { this.state.showOclu ? this.getDentSecteur(4,'o'):'' }
+
+                    { this.getDentSecteur(4,'v') }
+                </div>
+                <div className="select-face">
+                    <button onClick={()=>this.setState({showOclu: !this.state.showOclu})}>Oclu</button>
+                </div>
+            </div>
+        )
+    }
   }
 }
 
