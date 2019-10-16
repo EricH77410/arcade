@@ -7,7 +7,9 @@
     background-image: url('/assets/img/Violet_DI_1.png');
     background-size: 100% 100%;
     background-position: top;
-    height: 95vh;
+    background-repeat: no-repeat;
+    /* height: 95vh; */
+    min-height: 715px;
     position: relative;
 }
 
@@ -29,7 +31,7 @@
     display: flex;
     flex-direction: row-reverse;
     position: absolute;
-    top:110%;
+    top: 75%;
     right:50%;
 }
 
@@ -40,7 +42,8 @@
 .secteur2__o {
     display: flex;
     position: absolute;
-    top: 110%;
+    /* top: 110%; */
+    top: 72%;
     left: 50%;
 }
 
@@ -61,7 +64,8 @@
 .secteur3__o {
     display: flex;
     position: absolute;
-    top:-88px;
+    /* top:-88px; */
+    top: -25%;
     left:50%;
 }
 
@@ -74,7 +78,7 @@
     display: flex;
     flex-direction: row-reverse;
     position: absolute;
-    top:-88px;
+    top:-25%;
     right:50%;
 }
 
